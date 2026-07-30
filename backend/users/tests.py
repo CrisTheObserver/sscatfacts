@@ -39,3 +39,41 @@ class RegisterTests(APITestCase):
             },
         )
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
+class LoginTests(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="sofia",
+            password="password123",
+        )
+
+    def test_login_success(self):
+        response = self.client.post(
+            "/api/auth/login/",
+            {
+                "username": "sofia",
+                "password": "password123",
+            },
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_200_OK,
+        )
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
+
+    def test_login_invalid_credentials(self):
+        response = self.client.post(
+            "/api/auth/login/",
+            {
+                "username": "sofia",
+                "password": "wrongpassword",
+            },
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_401_UNAUTHORIZED,
+        )
