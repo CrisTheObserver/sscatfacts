@@ -12,7 +12,11 @@ class FavoriteViewTests(APITestCase):
             password="password123",
         )
         self.fact = CatFact.objects.create(
-            fact="Purring does not always indicate that a cat is happy and healthy - some cats will purr loudly when they are terrified or in pain."
+            fact=(
+                "Purring does not always indicate that a cat is happy "
+                "and healthy - some cats will purr loudly when they are "
+                "terrified or in pain."
+            )
         )
         self.url = reverse(
             "favorite-fact",
@@ -88,10 +92,17 @@ class FavoriteListViewTests(APITestCase):
             password="password321",
         )
         self.fact1 = CatFact.objects.create(
-            fact="Purring does not always indicate that a cat is happy and healthy - some cats will purr loudly when they are terrified or in pain."
+            fact=(
+                "Purring does not always indicate that a cat is happy "
+                "and healthy - some cats will purr loudly when they are "
+                "terrified or in pain."
+            )
         )
         self.fact2 = CatFact.objects.create(
-            fact="It has been scientifically proven that stroking a cat can lower one's blood pressure."
+            fact=(
+                "It has been scientifically proven that "
+                "stroking a cat can lower one's blood pressure."
+            )
         )
         self.fact3 = CatFact.objects.create(
             fact="Cats spend nearly 1/3 of their waking hours cleaning themselves."
@@ -154,10 +165,17 @@ class PopularFactListViewTests(APITestCase):
             password="password213",
         )
         self.fact1 = CatFact.objects.create(
-            fact="Purring does not always indicate that a cat is happy and healthy - some cats will purr loudly when they are terrified or in pain."
+            fact=(
+                "Purring does not always indicate that a cat is happy "
+                "and healthy - some cats will purr loudly when they are "
+                "terrified or in pain."
+            )
         )
         self.fact2 = CatFact.objects.create(
-            fact="It has been scientifically proven that stroking a cat can lower one's blood pressure."
+            fact=(
+                "It has been scientifically proven that "
+                "stroking a cat can lower one's blood pressure."
+            )
         )
         self.fact3 = CatFact.objects.create(
             fact="Cats spend nearly 1/3 of their waking hours cleaning themselves."
