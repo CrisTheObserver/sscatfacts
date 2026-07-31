@@ -2,6 +2,11 @@
 
 let currentFact = null;
 
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeHome,
+);
+
 async function initializeHome() {
   await loadRandomFact();
   document
