@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SSCatFacts | Popular</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="z-index: 1030;">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> 🐱 SSCatFacts </a>
+            <div>
+                <a href="popular.html" class="btn btn-outline-light btn-sm"> Popular </a>
+                <a href="favorites.html" class="btn btn-outline-light btn-sm"> Favorites </a>
+                <a id="auth-link" href="login.html" class="btn btn-light btn-sm"> Login </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <div class="row justify-content-center text-center mt-5">
+            <div class="col-md-5 card shadow bg-dark">
+                <div class="card-body">
+                <h1 class="text-light p-3"> The most Popular Cat Facts </h1>
+                    <div id="popular-container" class="row gy-3 overflow-auto" style="max-height: 70vh;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/popular.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
