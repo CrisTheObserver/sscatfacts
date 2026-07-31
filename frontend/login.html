@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SSCatFacts | Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"> 🐱 SSCatFacts </a>
+            <div>
+                <a href="popular.html" class="btn btn-outline-light btn-sm"> Popular </a>
+                <a href="favorites.html" class="btn btn-outline-light btn-sm"> Favorites </a>
+                <a id="auth-link" href="login.html" class="btn btn-light btn-sm"> Login </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <div class="row justify-content-center mt-5">
+            <div class="bg-dark col-md-5 card shadow">
+                <div class="card-body">
+                    <h2 class="text-center mb-4 text-light">
+                        SSCatFacts
+                    </h2>
+                    <form id="login-form">
+                        <div class="mb-3">
+                            <label for="username" class="form-label text-light">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-light">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                        <p class="text-center mt-3 text-light"> Don't have an account?
+                            <a href="register.html">Register</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
