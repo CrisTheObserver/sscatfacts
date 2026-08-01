@@ -162,6 +162,8 @@ The backend supports the following environment variable:
 | Variable          | Default                      |
 | ----------------- | ---------------------------- |
 | `CATFACT_API_URL` | `https://catfact.ninja/fact` |
+| `LOGIN_RATE` | `10/min` |
+| `SECRET_KEY` | — |
 
 ---
 
