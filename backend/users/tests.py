@@ -79,7 +79,7 @@ class LoginTests(APITestCase):
             response.status_code,
             status.HTTP_401_UNAUTHORIZED,
         )
-    
+
     def test_login_rate_limit(self):
         for _ in range(10):
             response = self.client.post(
