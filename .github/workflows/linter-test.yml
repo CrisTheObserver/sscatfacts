@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install backend dependencies
+        run: |
+          pip install -r ../requirements.txt
+          pip install -r ../requirements-dev.txt
+
+      - name: Run Black
+        run: black . --check
+
+      - name: Run Flake8
+        run: flake8 .
+
+      - name: Run Tests
+        run: python manage.py test
+
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npx eslint "frontend/**/*.js"
+
+      - name: Run Prettier
+        run: npx prettier "frontend/" --check
+
+      - name: Run HTMLHint
+        run: npx htmlhint "frontend/*.html"
