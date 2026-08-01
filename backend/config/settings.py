@@ -21,9 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-t&fedn)&$-(5+u2--l_ecflf%efef-m6^sj0j_33kpjgqe9*wa"
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -129,20 +126,29 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
+
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure-t&fedn)&$-(5+u2--l_ecflf%efef-m6^sj0j_33kpjgqe9*wa",
+)
 
 CATFACT_API_URL = os.getenv(
     "CATFACT_API_URL",
     "https://catfact.ninja/fact",
 )
 
-SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+LOGIN_RATE = os.getenv("LOGIN_RATE", "10/min")
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_THROTTLE_RATES": {
+        "login": LOGIN_RATE,
+    },
 }
